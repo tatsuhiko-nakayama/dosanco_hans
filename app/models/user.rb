@@ -9,5 +9,8 @@ class User < ApplicationRecord
   has_many :comments
   has_one :card
 
-  validates :name, :nickname, presence: true
+  with_options presence: true do
+    validates :name
+    validates :nickname, uniqueness: true
+  end
 end
