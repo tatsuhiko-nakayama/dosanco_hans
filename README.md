@@ -8,9 +8,6 @@
 | nickname     | string  | null: false |
 | email        | string  | null: false |
 | password     | string  | null: false |
-| interest1_id | integer | null: false |
-| interest2_id | integer | null: false |
-| interest3_id | integer | null: false |
 
 ### Association
 
@@ -18,9 +15,6 @@
 - has_many               :orders
 - has_many               :comments
 - has_one                :card
-- belongs_to_active_hash :interest1
-- belongs_to_active_hash :interest2
-- belongs_to_active_hash :interest3
 
 ## cards テーブル
 
