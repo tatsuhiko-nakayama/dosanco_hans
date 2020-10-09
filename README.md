@@ -11,7 +11,7 @@
 
 ### Association
 
-- has_many               :products
+- has_many               :items
 - has_many               :orders
 - has_many               :comments
 - has_one                :card
@@ -28,7 +28,7 @@
 
 - belongs_to :user
 
-## products テーブル
+## items テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
@@ -55,13 +55,13 @@
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_one    :address
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
 
 ## addresses テーブル
 
@@ -84,9 +84,9 @@
 | ------- | ---------- | ------------------------------ |
 | message | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
