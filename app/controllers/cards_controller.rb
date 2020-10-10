@@ -1,4 +1,6 @@
 class CardsController < ApplicationController
+  before_action :block_new, only: :new
+  before_action :block_double, only: :new
 
   def new
     @card = Card.new
@@ -37,6 +39,14 @@ class CardsController < ApplicationController
 
   def move_to_mypage
     redirect_to user_path(current_user.id)
+  end
+
+  def block_new
+    redirect_to root_path unless current_user
+  end
+
+  def block_new_double
+    move_to_mypage if current_user.card
   end
 
 end

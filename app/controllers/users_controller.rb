@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+  before_action :block_mypage, only: :show
+  before_action :block_edit, only: :edit
+  before_action :set_user, only: [:edit, :update, :show]
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       render :show
     else
@@ -16,15 +17,13 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     if user.destroy
-      redirect_to root_path
+      move_to_toppage
     else
       render :show
     end
   end
 
   def show
-    @user = current_user
-
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     card = Card.find_by(user_id: current_user.id)
 
@@ -36,7 +35,25 @@ class UsersController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:name, :nickname, :email)
   end
+
+  def move_to_toppage
+    redirect_to root_path
+  end
+
+  def block_mypage
+    redirect_to new_user_registration_path unless current_user 
+  end
+
+  def block_edit
+    user = User.find(params[:id])
+    move_to_toppage unless current_user.id == user.id
+  end
+
 end
