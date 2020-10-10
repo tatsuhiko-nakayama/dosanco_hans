@@ -9,8 +9,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day
 
   with_options presence: true do
-    validates :name, length { maximum: 40 }
-    validates :info, length { maximum: 1000 }
+    validates :name, length: { maximum: 40 }
+    validates :info, length: { maximum: 1000 }
     validates :image
   end
   validates :price, format: { with: /\A[0-9]+\z/, message: 'Half-width number' }
