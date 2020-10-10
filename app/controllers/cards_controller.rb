@@ -7,10 +7,10 @@ class CardsController < ApplicationController
   end
 
   def create
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     customer = Payjp::Customer.create(
-    description: 'test',
-    card: params[:card_token]
+      description: 'test',
+      card: params[:card_token]
     )
 
     card = Card.new(
@@ -48,5 +48,4 @@ class CardsController < ApplicationController
   def block_new_double
     move_to_mypage if current_user.card
   end
-
 end

@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     card = Card.find_by(user_id: current_user.id)
 
     if @user.card
@@ -48,12 +48,11 @@ class UsersController < ApplicationController
   end
 
   def block_mypage
-    redirect_to new_user_registration_path unless current_user 
+    redirect_to new_user_registration_path unless current_user
   end
 
   def block_edit
     user = User.find(params[:id])
     move_to_toppage unless current_user.id == user.id
   end
-
 end

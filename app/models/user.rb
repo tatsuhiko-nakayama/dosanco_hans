@@ -13,5 +13,4 @@ class User < ApplicationRecord
     validates :name
     validates :nickname, uniqueness: { case_sensitive: true }
   end
-  
 end
