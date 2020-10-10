@@ -7,11 +7,10 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
   has_many :comments
-  has_one :card
+  has_one :card, dependent: :destroy
 
   with_options presence: true do
     validates :name
     validates :nickname, uniqueness: { case_sensitive: true }
   end
-  
 end
