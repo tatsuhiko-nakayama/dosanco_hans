@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
 
   def new
+    @card = Card.new
   end
 
   def create
@@ -17,19 +18,25 @@ class CardsController < ApplicationController
     )
 
     if card.save
-      redirect_to root_path
+      move_to_mypage
     else
-      redirect_to :new
+      move_to_mypage
     end
   end
 
   def destroy
     card = Card.find(params[:user_id])
     if card.destroy
-      redirect_to root_path
+      move_to_mypage
     else
-      render :show
+      move_to_mypage
     end
+  end
+
+  private
+
+  def move_to_mypage
+    redirect_to user_path(current_user.id)
   end
 
 end

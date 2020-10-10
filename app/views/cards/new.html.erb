@@ -1,5 +1,7 @@
 <%= render "shared/second-header"%>
 
+<%= render 'shared/card_error_messages', card: @card %>
+
 <%= form_with  url: user_cards_path, id: 'charge-form', class: 'card-form',local: true do |f| %>
 <div class='form-wrap'>
   <div class='form-header'>
@@ -7,8 +9,6 @@
       クレジットカード登録
     </h1>
   </div>
-
-  <%#= render 'shared/error_messages', model: f.object %>
 
   <div class="form-group">
     <div class='form-text-wrap'>
