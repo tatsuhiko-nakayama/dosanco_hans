@@ -1,0 +1,56 @@
+<%= render "shared/second-header"%>
+
+<%# 「モデル名」にはUserモデルであれば@userを渡しましょう。「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+<%= form_with model: @user, url: "/users/#{@user.id}", class: 'registration-main', local: true do |f| %>
+<%# //「モデル名」にはUserモデルであれば@userを渡しましょう。「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      アカウント編集
+    </h1>
+  </div>
+
+  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+  <%= render 'shared/error_messages', model: f.object %>
+  <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">氏名</label>
+    </div>
+    <%= f.text_area :name, class:"input-default", id:"name", placeholder:"例) 北海　太郎", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ユーザー名</label>
+    </div>
+    <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) dosanco_hans", maxlength:"40" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メールアドレス</label>
+    </div>
+    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+ 
+  <div class="form-group">
+    <p class='form-info-header'>
+      本人確認
+    </p>
+    <p class='form-info-text'>
+      安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+    </p>
+  </div>
+  
+  <div class='register-btn'>
+    <%= f.submit "編集する" ,class:"register-red-btn" %>
+  </div>
+
+  <div class='register-btn'>
+    <%= link_to 'アカウントを削除', "#", method: :delete %>
+  </div>
+  
+</div>
+<% end %>
+
+<%= render "shared/second-footer"%>
