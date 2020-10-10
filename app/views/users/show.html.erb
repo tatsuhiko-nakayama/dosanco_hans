@@ -1,0 +1,41 @@
+<%= render "shared/header" %>
+
+<%# マイページ情報 %>
+<div class="item-show">
+  <div class="item-box">  
+
+    <%# アカウント情報 %>
+    <div class="item-explain-box">
+      <span><%= "アカウント情報" %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">氏名</th>
+          <td class="detail-value"><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">ユーザー名</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Email</th>
+          <td class="detail-value"><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">パスワード</th>
+          <td class="detail-value"><%= "********" %></td>
+        </tr>
+      </tbody>
+    </table>
+
+     <%# マイページアクション %>  
+    <%= link_to 'マイページの編集', edit_user_path(current_user), class: "item-red-btn" %>
+    <%= link_to 'カード情報の登録', "#" ,class:"item-red-btn"%>
+    
+   
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
