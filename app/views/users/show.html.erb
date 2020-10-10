@@ -30,8 +30,7 @@
     </table>
 
      <%# マイページアクション %>  
-    <%= link_to 'マイページの編集', "#", method: :get, class: "item-red-btn" %>
-    <%= link_to 'アカウントを削除', "#", method: :delete, class:'item-destroy' %>
+    <%= link_to 'マイページの編集', edit_user_path(current_user), class: "item-red-btn" %>
     <%= link_to 'カード情報の登録', "#" ,class:"item-red-btn"%>
     
    
