@@ -48,11 +48,13 @@ class UsersController < ApplicationController
   end
 
   def block_mypage
+    user = User.find(params[:id])
     redirect_to new_user_registration_path unless current_user
+    move_to_toppage if current_user.id != user.id
   end
 
   def block_edit
     user = User.find(params[:id])
-    move_to_toppage unless current_user.id == user.id
+    move_to_toppage if !current_user || current_user.id != user.id
   end
 end

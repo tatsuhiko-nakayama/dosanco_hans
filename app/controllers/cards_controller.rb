@@ -42,10 +42,11 @@ class CardsController < ApplicationController
   end
 
   def block_new
-    redirect_to root_path unless current_user
+    user = User.find(params[:user_id])
+    redirect_to root_path if !current_user || current_user.id != user.id
   end
 
-  def block_new_double
+  def block_double
     move_to_mypage if current_user.card
   end
 end
