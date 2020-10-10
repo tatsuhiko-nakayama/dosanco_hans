@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
 
+<%# カードを登録している場合の処理%>
 <%# マイページ情報 %>
 <div class="item-show">
   <div class="item-box">  
@@ -29,13 +30,34 @@
       </tbody>
     </table>
 
-     <%# マイページアクション %>  
+    <%# マイページアクション %>  
     <%= link_to 'マイページの編集', edit_user_path(current_user), class: "item-red-btn" %>
-    <%= link_to 'カード情報の登録', new_user_card_path(current_user) ,class:"item-red-btn"%>
     
-   
-  </div>
-
+    <%# カード登録済の場合%>
+    <% if @user.card %>
+      <%# カード情報 %>
+    <div class="item-explain-box">
+      <span><%= "カード情報" %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">カード番号</th>
+          <td class="detail-value"><%= "**** **** **** " + @card[:last4] %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">有効期限</th>
+          <td class="detail-value"><%= "#{@card[:exp_month]} / #{@card[:exp_year]}" %></td>
+        </tr>
+      </tbody>
+    </table>
+      <%# カード削除 %>
+      <%= link_to 'カードの登録を解除', user_card_path(@user.card.id), method: :delete, class:"item-red-btn" %>
+    <%# カード未登録の場合%>
+    <% else %>
+      <%= link_to 'カード情報の登録', new_user_card_path(current_user) ,class:"item-red-btn"%>
+    <% end %>
 </div>
+
 
 <%= render "shared/footer" %>
