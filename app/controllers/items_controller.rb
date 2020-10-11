@@ -58,6 +58,6 @@ class ItemsController < ApplicationController
   end
 
   def block_edit
-    redirect_to item_path(@item.id) if current_user != @item.user
+    redirect_to item_path(@item.id) if current_user != @item.user || @item.order
   end
 end
