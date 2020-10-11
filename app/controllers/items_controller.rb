@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :block_new, only: :new
 
   def index
   end
@@ -22,6 +23,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :name, :info, :price, :category_id, :from_id, :day_id).merge(user_id: current_user.id)
+  end
+
+  def block_new
+    redirect_to new_user_registration_path if !current_user 
   end
 
 end
