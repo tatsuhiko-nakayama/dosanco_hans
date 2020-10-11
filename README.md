@@ -11,10 +11,23 @@
 
 ### Association
 
-- has_many               :items
-- has_many               :orders
-- has_many               :comments
-- has_one                :card
+- has_many :items
+- has_many :orders
+- has_many :comments
+- has_many :sns_credentials
+- has_one  :card
+
+## sns_credentials テーブル
+
+| Column    | Type       | Options                         |
+| --------- | ---------- | ------------------------------- |
+| provider  | string     | null: false                     |
+| uid       | string     | null: false                     |
+| user      | references | null: false, foreign_key: true  |
+
+### Association
+
+- belongs_to :user
 
 ## cards テーブル
 
