@@ -3,6 +3,5 @@ FactoryBot.define do
     message { 'サンプルメッセージです' }
     association :user
     association :item
-    
   end
 end

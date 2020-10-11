@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
@@ -16,7 +15,6 @@ class CommentsController < ApplicationController
     else
       redirect_to item_path(comment.item.id)
     end
-
   end
 
   def comment_params

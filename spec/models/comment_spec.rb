@@ -22,9 +22,8 @@ RSpec.describe Comment, type: :model do
       it 'messageが140文字以内でなければ投稿できない' do
         @comment.message = Faker::Lorem.characters(141)
         @comment.valid?
-        expect(@comment.errors.full_messages).to include("Message is too long (maximum is 140 characters)")
+        expect(@comment.errors.full_messages).to include('Message is too long (maximum is 140 characters)')
       end
     end
-
   end
 end
