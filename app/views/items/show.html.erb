@@ -34,7 +34,7 @@
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% if user_signed_in? && current_user != @item.user && !@item.order %>
-      <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
+      <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class: "item-red-btn" %>
       <%= link_to '※カード未登録の方はマイページに遷移します', user_path(current_user.id) %>
     <% end %>
     <% unless user_signed_in? %>
@@ -90,19 +90,40 @@
         <span>コメントする<span>
       </button>
     <% end %>
-    <% @comments.each do |comment| %>
-      <div class="comment-content">
-        <div class="comment-message">
-          <span><%= comment.message %></span>
+    <div class="comment-second-box">
+      <% @comments.each do |comment| %>
+        <div class="comment-content">
+          <div class="comment-message">
+            <span><%= comment.message %></span>
+          </div>
+          <div class="comment-detail">
+            <div class="comment-user-box">
+              <div class="comment-user-type">
+                <% if @item.user == comment.user %>
+                  <span class="seller">出品者</span>
+                <% else %>
+                  <span class="buyer">投稿者</span>
+                <% end %>
+              </div>
+              <div class="comment-user-name">
+                <span><%= comment.user.nickname %></span>
+              </div>
+            </div>
+            <div class="comment-date-title">
+              <span>投稿日時</span>
+            </div>
+            <div class="comment-date">
+              <span><%= l comment.created_at %></span>
+            </div>
+          </div>
+          <% if comment.user == current_user %>
+            <div class="comment-delete">
+              <%= link_to 'コメントを削除', "/items/#{@item.id}/comments/#{comment.id}", method: :delete,  class: "delete-btn" %>
+            </div>
+          <% end %>
         </div>
-        <div class="comment-user">
-          <span><%= comment.user.nickname %></span>
-        </div>
-        <div class="comment-date">
-          <span><%= l comment.created_at %></span>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">

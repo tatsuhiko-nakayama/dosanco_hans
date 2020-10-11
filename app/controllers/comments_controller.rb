@@ -9,14 +9,14 @@ class CommentsController < ApplicationController
     end
   end
 
-  def update
-  end
-  
-
   def destroy
-  end
+    comment = Comment.find(params[:id])
+    if comment.destroy
+      redirect_to item_path(comment.item_id)
+    else
+      redirect_to item_path(comment.item.id)
+    end
 
-  def show
   end
 
   def comment_params

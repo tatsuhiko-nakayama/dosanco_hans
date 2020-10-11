@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
   resources :items do
     resources :orders, only: [:index, :create]
-    resources :comments, only: [:create, :update, :destroy, :show]
+    resources :comments, only: [:create, :destroy]
   end
 end
