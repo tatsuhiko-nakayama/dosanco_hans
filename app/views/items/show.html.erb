@@ -82,8 +82,11 @@
   <%# /商品の概要 %>
 
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
+    <% @comments.each do |comment| %>
+      <span><%= comment.message %></span>
+    <% end %>
+    <%= form_with model: @comment, url: item_comments_path(@item.id), local: true do |f| %>
+      <%= f.text_area :message, class:"comment-text", id:"comment-text", placeholder:"コメント（140文字まで)", maxlength:"140" %>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
@@ -93,7 +96,7 @@
         <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
         <span>コメントする<span>
       </button>
-    </form>
+    <% end %>
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">

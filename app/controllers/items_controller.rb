@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :block_edit, only: :edit
 
   def index
-    @items = Item.all.order('created_at DESC')
+    @items = Item.includes(:order).order('created_at DESC')
   end
 
   def new
@@ -41,6 +41,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user).order('created_at DESC')
   end
 
   private
