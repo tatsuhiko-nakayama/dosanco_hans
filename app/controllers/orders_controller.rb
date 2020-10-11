@@ -36,15 +36,15 @@ class OrdersController < ApplicationController
     customer = Payjp::Customer.retrieve(card.customer_token)
     @card = customer.cards.first
   end
-  
+
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     customer_token = current_user.card.customer_token
     Payjp::Charge.create(
       amount: @item.price,
       customer: customer_token,
       currency: 'jpy'
-      )
+    )
   end
 
   def block_index
@@ -54,5 +54,4 @@ class OrdersController < ApplicationController
   def block_no_card
     redirect_to user_path(current_user.id) unless current_user.card
   end
-
 end
