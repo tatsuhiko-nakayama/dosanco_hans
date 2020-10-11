@@ -7,6 +7,7 @@ class OrderAddress
     validates :city
     validates :house_num
     validates :phone, format: { with: /\A\d{10}$|^\d{11}\z/, message: 'Input correctly' }
+    validates :token
   end
 
   def save
