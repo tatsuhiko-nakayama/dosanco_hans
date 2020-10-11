@@ -54,6 +54,8 @@
       </div>
     </div>
     <%# /カード情報の入力 %>
+    
+    <%= render 'shared/order_error_messages', order: @order %>
 
     <%= form_with model: @order, url: "/items/#{@item.id}/orders", id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# 配送先の入力 %>
