@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:edit, :update, :show]
   before_action :block_mypage, only: :show
   before_action :block_edit, only: :edit
-  before_action :set_user, only: [:edit, :update, :show]
 
   def edit
   end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     if user.destroy
-      move_to_toppage
+      redirect_to root_path
     else
       render :show
     end
@@ -43,18 +43,15 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :nickname, :email)
   end
 
-  def move_to_toppage
-    redirect_to root_path
-  end
-
   def block_mypage
     user = User.find(params[:id])
-    return redirect_to new_user_registration_path if !current_user
-    move_to_toppage if current_user.id != user.id
+    return redirect_to new_user_registration_path unless current_user
+
+    redirect_to root_path if current_user != user
   end
 
   def block_edit
     user = User.find(params[:id])
-    move_to_toppage if !current_user || current_user.id != user.id
+    redirect_to root_path if !current_user || current_user != user
   end
 end

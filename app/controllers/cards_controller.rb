@@ -43,7 +43,7 @@ class CardsController < ApplicationController
 
   def block_new
     user = User.find(params[:user_id])
-    redirect_to root_path if !current_user || current_user.id != user.id
+    redirect_to root_path if !current_user || current_user != user
   end
 
   def block_double
