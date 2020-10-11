@@ -204,3 +204,25 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.comment-content{
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border: solid 2px #dedede;
+  resize: none;
+  word-wrap: break-word;
+}
+
+.comment-message{
+  text-align: left;
+  font-size: 14px;
+}
+
+.comment-user{
+  text-align: left;
+}
+
+.comment-date{
+  text-align: left;
+}
