@@ -45,7 +45,8 @@ class UsersController < ApplicationController
 
   def block_mypage
     user = User.find(params[:id])
-    return redirect_to new_user_registration_path if !current_user
+    return redirect_to new_user_registration_path unless current_user
+
     redirect_to root_path if current_user != user
   end
 
@@ -53,5 +54,4 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     redirect_to root_path if !current_user || current_user != user
   end
-  
 end

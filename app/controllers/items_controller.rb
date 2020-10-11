@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -43,7 +43,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-
   private
 
   def item_params
@@ -55,11 +54,10 @@ class ItemsController < ApplicationController
   end
 
   def block_new
-    redirect_to new_user_registration_path if !current_user 
+    redirect_to new_user_registration_path unless current_user
   end
 
   def block_edit
     redirect_to item_path(@item.id) if current_user != @item.user
   end
-
 end
