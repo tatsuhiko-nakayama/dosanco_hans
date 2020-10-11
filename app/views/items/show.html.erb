@@ -34,7 +34,7 @@
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <% if user_signed_in? && current_user != @item.user && !@item.order %>
-      <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
+      <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class: "item-red-btn" %>
       <%= link_to '※カード未登録の方はマイページに遷移します', user_path(current_user.id) %>
     <% end %>
     <% unless user_signed_in? %>
@@ -81,19 +81,49 @@
   </div>
   <%# /商品の概要 %>
 
+  <%# コメント %>
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
+    <%= form_with model: @comment, url: item_comments_path(@item.id), local: true do |f| %>
+      <%= f.text_area :message, class:"comment-text", id:"comment-text", placeholder:"コメント（140文字まで)", maxlength:"140" %>
       <button type="submit" class="comment-btn">
         <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
         <span>コメントする<span>
       </button>
-    </form>
+    <% end %>
+    <div class="comment-second-box">
+      <% @comments.each do |comment| %>
+        <div class="comment-content">
+          <div class="comment-message">
+            <span><%= comment.message %></span>
+          </div>
+          <div class="comment-detail">
+            <div class="comment-user-box">
+              <div class="comment-user-type">
+                <% if @item.user == comment.user %>
+                  <span class="seller">出品者</span>
+                <% else %>
+                  <span class="buyer">投稿者</span>
+                <% end %>
+              </div>
+              <div class="comment-user-name">
+                <span><%= comment.user.nickname %></span>
+              </div>
+            </div>
+            <div class="comment-date-title">
+              <span>投稿日時</span>
+            </div>
+            <div class="comment-date">
+              <span><%= l comment.created_at %></span>
+            </div>
+          </div>
+          <% if comment.user == current_user %>
+            <div class="comment-delete">
+              <%= link_to 'コメントを削除', "/items/#{@item.id}/comments/#{comment.id}", method: :delete,  class: "delete-btn" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">
