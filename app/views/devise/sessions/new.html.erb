@@ -12,8 +12,16 @@
     <%= flash[:alert] %>
   </div>
 
-  <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post %>
-  <%= link_to 'Googleアカウントでログイン', user_google_oauth2_omniauth_authorize_path, method: :post %>
+  <%# SNSログイン認証%>
+  <div class='auth-box'>
+    <div class='auth-content'>
+      <%= link_to 'Googleアカウントでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class:'auth-btn' %>
+    </div>
+    <div class='auth-content'>
+      <%= link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post, class: 'auth-btn' %>
+    </div>
+  </div>
+  <%# / SNSログイン認証%>
 
   <div class="form-group">
     <div class='form-text-wrap'>
