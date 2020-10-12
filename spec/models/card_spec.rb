@@ -16,13 +16,13 @@ RSpec.describe Card, type: :model do
       it 'card_tokenが空では登録できない' do
         @card.card_token = nil
         @card.valid?
-        expect(@card.errors.full_messages).to include("Card token can't be blank")
+        expect(@card.errors.full_messages).to include("Card tokenを入力してください")
       end
 
       it 'customer_tokenが空では登録できない' do
         @card.customer_token = nil
         @card.valid?
-        expect(@card.errors.full_messages).to include("Customer token can't be blank")
+        expect(@card.errors.full_messages).to include("Customer tokenを入力してください")
       end
     end
   end

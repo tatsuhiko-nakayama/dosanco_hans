@@ -21,43 +21,43 @@ RSpec.describe OrderAddress, type: :model do
       it 'tokenが不正値では購入できない' do
         @order_address.token = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+        expect(@order_address.errors.full_messages).to include("カード情報を入力してください")
       end
 
       it 'postal_codeが空では購入できない' do
         @order_address.postal_code = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Postal code can't be blank")
+        expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
       end
 
       it 'postal_codeにハイフン(-)が含まれていない場合は購入できない' do
         @order_address.postal_code = '1234567'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Postal code Input correctly')
+        expect(@order_address.errors.full_messages).to include('郵便番号を正しく入力してください')
       end
 
       it 'cityが空では購入できない' do
         @order_address.city = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("City can't be blank")
+        expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
       end
 
       it 'house_numが空では購入できない' do
         @order_address.house_num = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("House num can't be blank")
+        expect(@order_address.errors.full_messages).to include("番地を入力してください")
       end
 
       it 'phoneが空では購入できない' do
         @order_address.phone = nil
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Phone can't be blank")
+        expect(@order_address.errors.full_messages).to include("電話番号を入力してください")
       end
 
       it 'phoneにハイフン(-)が含まれている場合は購入できない' do
         @order_address.phone = '090-1234-5678'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include('Phone Input correctly')
+        expect(@order_address.errors.full_messages).to include('電話番号を正しく入力してください')
       end
     end
   end
