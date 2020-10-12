@@ -1,4 +1,25 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        name: 氏名
+        nickname: ユーザー名
+      item:
+        name: 商品名
+        info: 説明文
+        image: 画像
+        price: 販売価格
+        category_id: カテゴリー
+        from_id: 発送元の地域
+        day_id: 発送までの日数
+  activemodel:
+    attributes:
+      order_address:
+        postal_code: 郵便番号
+        city: 市区町村
+        house_num: 番地
+        phone: 電話番号
+        token: カード情報
   time:
     formats:
       default: "%Y/%m/%d %H:%M"
