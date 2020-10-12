@@ -31,8 +31,8 @@ const pay = () => {
       }   
     });
   });
- };
+};
 
- if (document.URL.match( /cards/ )) {
+if (document.URL.match( /cards/ )) {
   window.addEventListener("load", pay);
 }

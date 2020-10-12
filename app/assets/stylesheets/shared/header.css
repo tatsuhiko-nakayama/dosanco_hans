@@ -57,17 +57,12 @@
 .lists-left {
   display: flex;
   min-width: 200px;
-
+ 
 }
 
 .category-list {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
-}
-
-.brand-list {
-  text-decoration: none;
   color: #333333;
 }
 
@@ -101,4 +96,12 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.hidden{
+  display: none;
+}
+
+.category-name{
+  color: grey;
 }

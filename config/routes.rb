@@ -11,4 +11,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :create]
     resources :comments, only: [:create, :destroy]
   end
+
+  resources :categories do
+    collection do
+      get 'id2', 'id3', 'id4', 'id5', 'id6', 'id7', 'id8', 'id9', 'id10'
+    end
+  end
 end
