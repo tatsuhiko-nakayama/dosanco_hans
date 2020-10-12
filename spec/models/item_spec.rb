@@ -21,61 +21,61 @@ RSpec.describe Item, type: :model do
       it 'imageが空では登録できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("画像を入力してください")
       end
 
       it 'nameが空では登録できない' do
         @item.name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name can't be blank")
+        expect(@item.errors.full_messages).to include("商品名を入力してください")
       end
 
       it 'infoが空では登録できない' do
         @item.info = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Info can't be blank")
+        expect(@item.errors.full_messages).to include("説明文を入力してください")
       end
 
       it 'category_idが「1」の場合は登録できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category Select')
+        expect(@item.errors.full_messages).to include('カテゴリーを選んでください')
       end
 
       it 'from_idが「1」の場合は登録できない' do
         @item.from_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('From Select')
+        expect(@item.errors.full_messages).to include('発送元の地域を選んでください')
       end
 
       it 'day_idが「1」の場合は登録できない' do
         @item.day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Day Select')
+        expect(@item.errors.full_messages).to include('発送までの日数を選んでください')
       end
 
       it 'priceが空では登録できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price can't be blank")
+        expect(@item.errors.full_messages).to include("販売価格を入力してください")
       end
 
       it 'priceが¥100未満では登録できない' do
         @item.price = 99
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Out of setting range')
+        expect(@item.errors.full_messages).to include('販売価格が範囲外です')
       end
 
       it 'priceが¥10,000,000以上では登録できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Out of setting range')
+        expect(@item.errors.full_messages).to include('販売価格が範囲外です')
       end
 
       it 'priceに半角数字以外が含まれている場合は登録できない' do
         @item.price = 1, 0o00
         @item.valid?
-        expect(@item.errors.full_messages).to include('Price Half-width number')
+        expect(@item.errors.full_messages).to include('販売価格は半角数字で入力してください')
       end
     end
   end
