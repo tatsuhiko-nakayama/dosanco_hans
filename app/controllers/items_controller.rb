@@ -45,6 +45,10 @@ class ItemsController < ApplicationController
     @comments = @item.comments.includes(:user).order('created_at DESC')
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+  end
+
   private
 
   def item_params
