@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      render :show
+      redirect_to root_path
     else
       render :edit
     end
