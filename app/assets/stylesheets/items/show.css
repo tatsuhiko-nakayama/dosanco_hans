@@ -203,9 +203,9 @@
 }
 
 .change-item-btn {
-  font-size: 30px;
+  font-size: 15px;
   text-decoration: none;
-  color: #3CCACE;
+  color: grey;
 }
 
 .another-item {
@@ -275,4 +275,12 @@
   text-align: left;
   font-size: 12px;
   color: gray;
+}
+
+.change-item-img{
+  height: 10vh;
+  width: 12vw;
+  min-height: 100px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
 }
