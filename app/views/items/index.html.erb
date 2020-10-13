@@ -6,7 +6,7 @@
     <h2 class='title'>新規投稿商品一覧</h2>
     <ul class='item-lists'>
       <%# 商品のインスタンス変数になにか入っている場合、すべてを展開 %>
-      <% @items.each do |item| %>
+      <% @items.first(20).each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
