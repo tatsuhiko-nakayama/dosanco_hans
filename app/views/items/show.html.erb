@@ -127,19 +127,19 @@
   </div>
   <div class="links">
     <% if @item.previous.present?%>
-      <%= link_to item_path(@item.previous) do %>
+      <%= link_to item_path(@item.previous), class: "link" do %>
         <p class="change-item-btn">Before</p>
         <%= image_tag @item.previous.image, class: "change-item-img" %>
-        <p class="change-item-btn"><%= @item.previous.name if @item.previous.name.length <= 10  %></p>
-        <p class="change-item-btn"><%= @item.previous.name.slice(0..9) + "…" if @item.previous.name.length >= 11  %></p>
+        <p class="change-item-btn"><%= @item.previous.name if @item.previous.name.length <= 15  %></p>
+        <p class="change-item-btn"><%= @item.previous.name.slice(0..14) + "…" if @item.previous.name.length >= 16  %></p>
       <% end %>
     <% end %>
     <% if @item.next.present?%>
-      <%= link_to item_path(@item.next) do %>
+      <%= link_to item_path(@item.next), class: "link" do %>
         <p class="change-item-btn">Next</p>
         <%= image_tag @item.next.image ,class:"change-item-img" %>
-        <p class="change-item-btn"><%= @item.next.name if @item.next.name.length <= 10  %></p>
-        <p class="change-item-btn"><%= @item.next.name.slice(0..9) + "…" if @item.next.name.length >= 11 %></p>
+        <p class="change-item-btn"><%= @item.next.name if @item.next.name.length <= 15  %></p>
+        <p class="change-item-btn"><%= @item.next.name.slice(0..14) + "…" if @item.next.name.length >= 16 %></p>
       <% end %>
     <% end %>
   </div>

@@ -199,7 +199,11 @@
   display: flex;
   justify-content: space-between;
   width: 50vw;
+}
 
+.link {
+  margin-left: 1vh;
+  margin-right: 1vh;
 }
 
 .change-item-btn {
@@ -278,8 +282,7 @@
 }
 
 .change-item-img{
-  height: 10vh;
-  width: 12vw;
+  height: 20vh;
   min-height: 100px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
