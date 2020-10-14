@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one :order
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
   belongs_to :user
   has_one_attached :image
   belongs_to_active_hash :category
@@ -25,4 +27,13 @@ class Item < ApplicationRecord
       Item.includes(:order).order('created_at DESC')
     end
   end
+
+  def previous
+    user.items.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
+  end
+
+  def next
+    user.items.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
+  end
+  
 end

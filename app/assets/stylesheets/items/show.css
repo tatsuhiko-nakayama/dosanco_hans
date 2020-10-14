@@ -120,6 +120,10 @@
   margin-right: 5px;
 }
 
+.favorite-text {
+  color: #2d2d2d;
+}
+
 .report-btn {
   border-radius: 40px;
   width: 15vw;
@@ -199,13 +203,17 @@
   display: flex;
   justify-content: space-between;
   width: 50vw;
+}
 
+.link {
+  margin-left: 1vh;
+  margin-right: 1vh;
 }
 
 .change-item-btn {
-  font-size: 30px;
+  font-size: 15px;
   text-decoration: none;
-  color: #3CCACE;
+  color: grey;
 }
 
 .another-item {
@@ -275,4 +283,11 @@
   text-align: left;
   font-size: 12px;
   color: gray;
+}
+
+.change-item-img{
+  height: 20vh;
+  min-height: 100px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
 }

@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= "商品名" %>
+      <%= @item.name %>
     </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
@@ -69,14 +69,21 @@
       </tbody>
     </table>
     <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%= image_tag "flag.png" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切な商品の通報</span>
-      </div>
+      <% if current_user.already_liked?(@item) %>
+        <%= link_to item_like_path(@item.id), method: :delete do %>
+          <div class="favorite-btn">
+            <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+            <span class="favorite-text">お気に入りを取り消す</span>
+          </div>
+        <% end %>
+      <% else%>
+        <%= link_to item_likes_path(@item.id), method: :post do %>
+          <div class="favorite-btn">
+            <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+            <span class="favorite-text">お気に入り</span>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <%# /商品の概要 %>
@@ -126,14 +133,24 @@
     </div>
   </div>
   <div class="links">
-    <a href="#" class="change-item-btn">
-      ＜ 前の商品
-    </a>
-    <a href="#" class="change-item-btn">
-      後ろの商品 ＞
-    </a>
+    <% if @item.previous.present?%>
+      <%= link_to item_path(@item.previous), class: "link" do %>
+        <p class="change-item-btn">Before</p>
+        <%= image_tag @item.previous.image, class: "change-item-img" %>
+        <p class="change-item-btn"><%= @item.previous.name if @item.previous.name.length <= 15  %></p>
+        <p class="change-item-btn"><%= @item.previous.name.slice(0..14) + "…" if @item.previous.name.length >= 16  %></p>
+      <% end %>
+    <% end %>
+    <% if @item.next.present?%>
+      <%= link_to item_path(@item.next), class: "link" do %>
+        <p class="change-item-btn">Next</p>
+        <%= image_tag @item.next.image ,class:"change-item-img" %>
+        <p class="change-item-btn"><%= @item.next.name if @item.next.name.length <= 15  %></p>
+        <p class="change-item-btn"><%= @item.next.name.slice(0..14) + "…" if @item.next.name.length >= 16 %></p>
+      <% end %>
+    <% end %>
   </div>
-  <a href="#" class='another-item'><%= @item.category.name %>をもっと見る</a>
+  <%= link_to "#{@item.category.name}をもっと見る", "/categories/id#{@item.category_id}", class: "another-item"%>
 </div>
 
 <%= render "shared/footer" %>

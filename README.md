@@ -16,6 +16,7 @@
 - has_many :comments
 - has_many :sns_credentials
 - has_one  :card
+- has_many :likes
 
 ## sns_credentials テーブル
 
@@ -57,6 +58,7 @@
 
 - has_one                :order
 - has_many               :comments
+- has_many               :likes
 - belongs_to             :user
 - has_one_attached       :image
 - belongs_to_active_hash :category
@@ -98,6 +100,18 @@
 | message | text       | null: false                    |
 | user    | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## likes テーブル
+
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
