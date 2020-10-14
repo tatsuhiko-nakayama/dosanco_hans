@@ -7,10 +7,11 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :orders
   has_many :comments, dependent: :destroy
+  has_many :commented_items, through: :comments, source: :item
   has_many :sns_credentials, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :liked_items, through: :likes, source: :item
 
   with_options presence: true do
     validates :name

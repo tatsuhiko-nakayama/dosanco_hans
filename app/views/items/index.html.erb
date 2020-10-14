@@ -29,7 +29,9 @@
             <span><%= item.price %>円<br>(税込み)</span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+              <span class='star-count'><%= Like.where(item_id: item.id).count %></span>
+              <%= image_tag "comment2.png", class:"comment-icon" %>
+              <span class='comment-count'><%= Comment.where(item_id: item.id).count %></span>
             </div>
           </div>
         </div>

@@ -68,23 +68,13 @@
         </tr>
       </tbody>
     </table>
+    <%# いいねボタン %>
     <div class="option">
-      <% if current_user.already_liked?(@item) %>
-        <%= link_to item_like_path(@item.id), method: :delete do %>
-          <div class="favorite-btn">
-            <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-            <span class="favorite-text"><%= "いいね #{@likes_count}" %></span>
-          </div>
-        <% end %>
-      <% else%>
-        <%= link_to item_likes_path(@item.id), method: :post do %>
-          <div class="favorite-btn">
-            <%= image_tag "white_star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-            <span class="favorite-text"><%= "いいね #{@likes_count}" %></span>
-          </div>
-        <% end %>
-      <% end %>
+      <div class="favorite-btn" id="favorite">
+        <%= render 'like', { item: @item } %>
+      </div>
     </div>
+    <%# /いいねボタン %>
   </div>
   <%# /商品の概要 %>
 
