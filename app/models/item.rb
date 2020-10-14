@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one :order
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
   belongs_to :user
   has_one_attached :image
   belongs_to_active_hash :category

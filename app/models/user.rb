@@ -9,10 +9,16 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   has_one :card, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
 
   with_options presence: true do
     validates :name
     validates :nickname, uniqueness: { case_sensitive: true }
+  end
+
+  def already_liked?(item)
+    self.likes.exists?(item_id: item.id)
   end
 
   def self.from_omniauth(auth)

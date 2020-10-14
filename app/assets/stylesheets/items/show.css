@@ -120,6 +120,10 @@
   margin-right: 5px;
 }
 
+.favorite-text {
+  color: #2d2d2d;
+}
+
 .report-btn {
   border-radius: 40px;
   width: 15vw;
