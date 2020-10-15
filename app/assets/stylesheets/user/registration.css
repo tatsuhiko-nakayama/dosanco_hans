@@ -119,7 +119,7 @@
 .form-bottom-text {
   font-size: 15px;
   margin-top: 10px;
-  text-align: center;
+  text-align: left;
 }
 
 .form-bottom-text:last-child {
@@ -133,14 +133,19 @@
 }
 
 .register-btn {
-  width: 50%;
+  width: 30%;
   margin: 0 auto;
+}
+
+.register-btn:hover {
+  opacity: 0.5 ;
 }
 
 .register-red-btn {
   width: 100%;
-  background: #ea352d;
-  border: 1px solid #ea352d;
+  background: #955E22;
+  border: 1px solid #955E22;
+  border-radius: 5px;
   color: #fff;
   line-height: 48px;
   font-size: 14px;
@@ -149,27 +154,42 @@
   margin-bottom: 20px;
 }
 
+.user-delete-btn {
+  text-align: center;
+}
+
+.user-delete-text {
+  color: red;
+  font-weight: bold;
+}
+
+.user-delete-text:hover {
+  opacity: 0.5 ;
+}
+
 .register-info {
-  margin: 30px 180px 0 0;
   color: #0099e8;
-  text-align: right;
+  text-align: center;
   cursor: pointer;
 }
 
 .auth-box{
   height: 100px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.auth-content{
-  height: 50%;
+  width: 100%;
+  margin-bottom: 5vh;
+  margin-left: 9vw;
+  justify-content: center;
 }
 
 .auth-btn{
+  text-align: center;
+  width: 65%;
   padding: 10px;
   border-radius: 2px;
   color: grey;
   border: 1px solid grey;
+  font-size: 15px;
   font-weight: bold;
+  display: block;
+  margin: 2vh 0;
 }

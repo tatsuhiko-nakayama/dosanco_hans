@@ -9,7 +9,8 @@ a {
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
-  background-image: image-url('furima-header01.png');
+  height: 35vw;
+  background-image: image-url('toppage_content1.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -23,7 +24,8 @@ a {
 }
 
 .service-title {
-  font-size: 8vh;
+  font-size: 5vh;
+  margin-bottom: 3vh;
 }
 
 .service-explain {
@@ -64,7 +66,7 @@ a {
   content: '';
   width: 70px;
   height: 4px;
-  background-color: #3ccace;
+  background-color: #585858;
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -88,6 +90,7 @@ a {
 .list-pict {
   margin-bottom: 20px;
   width: 100%;
+  border: 1px solid lightgrey;
 }
 
 .reason-list-number {
@@ -99,18 +102,18 @@ a {
   font-size: 30px;
   text-align: center;
   line-height: 60px;
-  background-color: #3ccace;
+  background-color: #585858;
   color: #fff;
 }
 
 .reason-list-text {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 50px;
 }
 
 .reason-list-blue-text {
-  color: #3ccace;
+  color: #ff9300;
 }
 
 .reason-list-description {
@@ -216,17 +219,33 @@ a {
 /* 商品一覧 */
 
 .item-contents {
-  background-color: #FFF;
+  background-color: #E8E7E9;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10vh 0;
 }
+.second-item-contents {
+  background-color: #E8E7E9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5vh 0 10vh 0;
+}
 
 .item-contents>.title {
-  font-size: 5vh;
+  font-size: 3vh;
   line-height: 1.4;
   font-weight: bold;
+}
+
+.category-title {
+  height: 1vh;
+  padding-top: 10vh;
+  font-size: 3vh;
+  font-weight: bold;
+  text-align: center;
+  background-color: #E8E7E9;
 }
 
 .item-contents>.subtitle {
@@ -248,17 +267,28 @@ a {
 .item-lists>.list {
   width: 37vh;
   padding: 1vw;
-  background-color: #FFF;
+  background-color: #E8E7E9;
 }
-
 
 .item-img-content {
   position: relative;
+  width :33vh;
+  width :33vh;
+  border: 1px solid lightgrey;
 }
+
+.item-img-content-show {
+  position: relative;
+}
+
 
 .item-img {
   width: 33vh;
   height: 33vh;
+}
+
+.item-img:hover{
+  opacity: 0.5 ;
 }
 
 .sold-out {
@@ -266,25 +296,36 @@ a {
   top: 40%;
   width: 100%;
   text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
+  background-color: grey;
+  transform: skewY(-0deg);
 }
 
 .sold-out>span {
   color: #FFF;
-  font-size: 45px;
-  font: bold;
+  font-size: 30px;
 }
 
 
 .item-info {
+  height: 15vh;
+  width: 33vh;
   background-color: #FFF;
+  color: black;
+  padding: 1vw;
+  align-content: space-between;
+}
+
+.search-item-nil {
+  height: 10vh;
+  width: 33vh;
+  background-color: #E8E7E9;
   color: black;
   padding: 1vw;
 }
 
 .item-name {
   font-size: 2.5vh;
+  word-wrap: break-word;
 }
 
 .item-price {
@@ -318,6 +359,32 @@ a {
 
 .comment-count{
   font-size: 2vh;
+  margin-right: 1vh;
+}
+
+.edit-link-white {
+  color: #fff;
+}
+
+.edit-link-white:hover {
+  opacity: 0.5 ;
+}
+
+.edit-link {
+  color: #000;
+}
+
+.edit-link:hover {
+  opacity: 0.5 ;
+}
+
+.edit-link-red {
+  color: red;
+  text-decoration: underline;
+}
+
+.edit-link-red:hover {
+  opacity: 0.5 ;
 }
 
 /* //商品一覧 */

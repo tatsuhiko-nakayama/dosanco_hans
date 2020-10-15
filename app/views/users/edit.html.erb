@@ -45,11 +45,9 @@
   <div class='register-btn'>
     <%= f.submit "編集する" ,class:"register-red-btn" %>
   </div>
-
-  <div class='register-btn'>
-    <%= link_to 'アカウントを削除', "/users/#{@user.id}", method: :delete %>
+  <div class="user-delete-btn">
+    <%= link_to 'アカウントを削除', "/users/#{@user.id}", method: :delete, class: "user-delete-text" %>
   </div>
-  
 </div>
 <% end %>
 

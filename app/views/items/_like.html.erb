@@ -1,9 +1,11 @@
-<% if current_user.already_liked?(@item) %>
+<% if !current_user%>
+  <% return %>
+<% elsif current_user.already_liked?(@item) %>
   <%= link_to item_like_path(@item.id), method: :delete do %>
     <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
     <span class="favorite-text"><%= "いいね #{@likes_count}" %></span>
   <% end %>
-<% else%>
+<% else %>
   <%= link_to item_likes_path(@item.id), method: :post do %>
     <%= image_tag "white_star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
     <span class="favorite-text"><%= "いいね #{@likes_count}" %></span>

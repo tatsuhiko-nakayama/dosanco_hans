@@ -1,7 +1,7 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
-    <%= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %>
+    <%= link_to image_tag("dosanco_hans_logo.png", class:"furima-icon"), "/" %>
     <%= form_with url: search_items_path, method: :get, local: true do |f| %>
       <div class="search-form">
         <%= f.text_area :keyword, placeholder: '商品名を検索する',　class: 'input-box' %>
@@ -11,13 +11,12 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li class ="category-list" id="category">カテゴリー</li>
+      <li class ="category-list" id="category">▼ カテゴリーから探す</li>
     </ul>
     <ul class='lists-right'>
       <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
       <% if user_signed_in? %>
-        <li class="user-nickname"><%= "#{current_user.nickname}さん" %></li>
-        <li><%= link_to "マイページ", user_path(current_user.id), class: "user-nickname" %></li> 
+        <li><%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user.id), class: "user-nickname" %></li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
