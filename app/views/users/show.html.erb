@@ -1,6 +1,63 @@
 <%= render "shared/header" %>
 
-<%# カードを登録している場合の処理%>
+<%# 「いいね」した商品の一覧 %>
+<div class='item-contents'>
+  <h2 class='title'>「いいね」した商品</h2>
+  <ul class='item-lists'>
+
+    <%# 商品のインスタンス変数になにか入っている場合、すべてを展開 %>
+    <% @user.liked_items.each do |item| %>
+      <li class='list'>
+        <%= link_to item_path(item.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag item.image, class: "item-img" %>
+
+            <%# 商品が売れていればsold outを表示しましょう %>
+            <% if item.order %>
+              <div class='sold-out'>
+                <span>Sold Out</span>
+              </div>
+            <% end %>
+            <%# //商品が売れていればsold outを表示しましょう %>
+
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name edit-link'>
+              <%= item.name %>
+            </h3>
+            <div class='item-price edit-link'>
+              <span><%= item.price %>円<br>(税込み)</span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count edit-link'><%= Like.where(item_id: item.id).count %></span>
+              <%= image_tag "comment2.png", class:"comment-icon" %>
+              <span class='comment-count edit-link'><%= Comment.where(item_id: item.id).count %></span>
+            </div>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+    <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+
+    <%# 商品がない場合のダミー %>
+    <% unless @user.liked_items.exists?%>
+      <li class='list'>
+        <%= link_to '#' do %>
+          <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+          <div class='search-item-nil'>
+            <h3 class='item-name'>
+              <p>まだ「いいね」した商品がありません</p>
+            </h3>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+    <%# //商品がある場合は表示されないようにしましょう %>
+      
+  </ul>
+</div>
+<%# /「いいね」した商品の一覧 %>
+
 <%# マイページ情報 %>
 <div class="item-show">
   <div class="item-box">  
@@ -57,7 +114,7 @@
     <% else %>
       <%= link_to 'カード情報の登録', new_user_card_path(current_user) ,class:"item-red-btn"%>
     <% end %>
+  </div>
 </div>
-
 
 <%= render "shared/footer" %>

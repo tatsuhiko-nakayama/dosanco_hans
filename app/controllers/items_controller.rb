@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @item.comments.includes(:user).order('created_at DESC')
+    @likes_count = Like.where(item_id: @item.id).count
   end
 
   def search

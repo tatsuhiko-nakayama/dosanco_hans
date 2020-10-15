@@ -52,12 +52,18 @@
 
 .item-red-btn {
   text-align: center;
-  background-color: #ea352d;
-  font-size: 24px;
+  background-color: #955E22;
+  font-size: 15px;
   font-weight: bold;
   color: #FFF;
   margin: 20px 0px;
-  padding: 2vh 10vw;
+  padding: 2vh 5vw;
+  border: 1px solid #955E22;
+  border-radius: 10px;
+}
+
+.item-red-btn:hover {
+  opacity: 0.5 ;
 }
 
 .or-text {
@@ -65,26 +71,36 @@
 }
 
 .item-destroy {
-  background-color: lightgray;
+  background-color: lightgrey;
   text-align: center;
-  font-size: 24px;
+  font-size: 15px;
+  font-weight: bold;
   color: black;
   margin: 20px 0px;
-  padding: 2vh 10vw;
+  padding: 2vh 5vw;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
 }
+
+.item-destroy:hover {
+  opacity: 0.5 ;
+}
+
 
 .item-explain-box {
   font-size: 18px;
-  margin: 40px 0px;
+  margin: 60px 0px;
+  width:80%;
+  word-wrap: break-word;
 }
 
 .detail-table {
   margin-bottom: 30px;
-  width: 100%;
+  width: 70vw;
 }
 
 .detail-item {
-  width: 20%;
+  width: 30%;
   background-color: #eee;
   border: 1px solid #dedede;
   font-size: 14px;
@@ -92,7 +108,7 @@
 }
 
 .detail-value {
-  width: 80%;
+  width: 70%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
@@ -113,10 +129,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
   margin-right: 20px;
 }
 
 .favorite-star-icon {
+  margin-top: 5px;
   margin-right: 5px;
 }
 
@@ -178,8 +196,8 @@
 
 .comment-btn {
   line-height: 48px;
-  background-color: #3CCACE;
-  border: 1px solid #3CCACE;
+  background-color: #585858;
+  border: 1px solid #585858;
   color: #fff;
   width: 50%;
   min-width: 150px;
@@ -187,7 +205,10 @@
   border-radius: 100px;
   margin-bottom: 2vh;
   margin-top: 2vh;
-  
+}
+
+.comment-btn:hover {
+  opacity: 0.5 ;
 }
 
 .comment-flag {
@@ -219,10 +240,14 @@
 .another-item {
   display: block;
   margin: 30px 0px 8px;
-  color: #3CCACE;
+  color: #955E22;
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+
+.another-item:hover {
+  opacity: 0.5 ;
 }
 
 .comment-content{
@@ -285,9 +310,20 @@
   color: gray;
 }
 
+.non-user-comment {
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  font-weight: bold;
+}
+
 .change-item-img{
   height: 20vh;
   min-height: 100px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
+  border: 1px solid lightgrey;
+}
+
+.change-item-img:hover {
+  opacity: 0.5 ;
 }

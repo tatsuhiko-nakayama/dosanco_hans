@@ -1,3 +1,9 @@
+# # < User登録 >
+# 5.times do |i|
+#   User.create(id: "#{i+1}", name: "tester#{i+1}", nickname: "tester#{i+1}", email: "tester@#{i+1}", password: "tester#{i+1}")
+# end
+# # < /User登録 >
+
 # # < Item登録 >
 # 10.times do |i|
 #   # Furniture Category (id:2)
@@ -59,3 +65,13 @@
 #   Comment.create(message: "Half-width" * 10, user_id: '7', item_id: '100')
 # end
 # # < /Comment登録 >
+
+# # < Like登録 >
+# 10.times do |i|
+#   Like.create(user_id: '1', item_id: "#{100-i}")
+#   Like.create(user_id: '2', item_id: "#{100-i}")
+#   Like.create(user_id: '3', item_id: "#{100-i}")
+#   Like.create(user_id: '4', item_id: "#{100-i}")
+#   Like.create(user_id: '5', item_id: "#{100-i}")
+# end
+# # < /Like登録 >

@@ -16,7 +16,7 @@
 }
 
 .furima-icon {
-  width: 10vw;
+  width: 17vw;
   margin-right: 10vw;
   margin-bottom: 5px;
 }
@@ -31,7 +31,7 @@
 .search-button {
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: #585858;
   background-image: url("/images/search.png");
   padding: 8px;
 }
@@ -57,36 +57,50 @@
   color: #333333;
 }
 
+.category-list:hover {
+  color: orange;
+}
+
 .lists-right {
-  display: flex;
+ 
   list-style: none;
   align-items: flex-end;
+  text-align: right;
 }
 
 
 .user-nickname {
   text-decoration: none;
-  margin-right: 3vw;
+  text-decoration: underline;
   color: #333333;
-  font-weight: bold;
+  font-size: 15px;
+}
+
+.user-nickname:hover {
+  color: #5DB3FD;
 }
 
 
 .logout {
   text-decoration: none;
   color: #333333;
+  font-size: 13px;
+}
+
+.logout:hover {
+  color: #EA6E55;
 }
 
 .login {
   text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
   color: #333333;
+  font-size: 15px;
 }
 
 .sign-up {
   text-decoration: none;
   color: #333333;
+  font-size: 15px;
 }
 
 .hidden{
@@ -98,17 +112,18 @@
 }
 
 .search-form textarea {
-  width: 50vw;
-  height: 35px;
-  padding: 5px;
+  width: 38vw;
+  height: 6vh;
+  padding: 8px;
   border: 1px solid #D8D8D8;
   border-radius: 5px;
   font-family: "游ゴシック", "YuGothic";
+  outline: none;
 }
 
+
 .search-form input[type="submit"] {
-  width: 65px;
-  height: 35px;
+  height: 6vh;
   margin-left: 5px;
   border-radius: 5px;
   color: #fff;
@@ -117,5 +132,5 @@
 }
 
 .search-form input[type="submit"]:hover {
-  background-color: #84d3ef;
+  background-color: orange;
 }
