@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def already_liked?(item)
-    self.likes.exists?(item_id: item.id)
+    likes.exists?(item_id: item.id)
   end
 
   def self.from_omniauth(auth)

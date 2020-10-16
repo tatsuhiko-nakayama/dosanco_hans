@@ -22,7 +22,7 @@ class Item < ApplicationRecord
   validates :category_id, :from_id, :day_id, numericality: { other_than: 1, message: 'を選んでください' }
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Item.where('name LIKE(?)', "%#{search}%").order('created_at DESC')
     else
       Item.includes(:order).order('created_at DESC')
@@ -36,5 +36,4 @@ class Item < ApplicationRecord
   def next
     user.items.order('created_at desc, id desc').where('created_at >= ? and id > ?', created_at, id).reverse.first
   end
-  
 end

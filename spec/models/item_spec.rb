@@ -21,19 +21,19 @@ RSpec.describe Item, type: :model do
       it 'imageが空では登録できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("画像を入力してください")
+        expect(@item.errors.full_messages).to include('画像を入力してください')
       end
 
       it 'nameが空では登録できない' do
         @item.name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
 
       it 'infoが空では登録できない' do
         @item.info = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("説明文を入力してください")
+        expect(@item.errors.full_messages).to include('説明文を入力してください')
       end
 
       it 'category_idが「1」の場合は登録できない' do
@@ -57,7 +57,7 @@ RSpec.describe Item, type: :model do
       it 'priceが空では登録できない' do
         @item.price = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格を入力してください")
+        expect(@item.errors.full_messages).to include('販売価格を入力してください')
       end
 
       it 'priceが¥100未満では登録できない' do

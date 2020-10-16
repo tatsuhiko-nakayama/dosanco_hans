@@ -36,7 +36,9 @@
     <%# 商品が売れていない場合の処理 %>
     <% if user_signed_in? && current_user != @item.user && !@item.order %>
       <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class: "item-red-btn" %>
-      カード未登録の方は<%= link_to 'マイページ', user_path(current_user.id), class: "edit-link-red"%>に遷移します
+      <div class="no-card-mypage">
+        ※カード未登録の方は<%= link_to 'マイページ', user_path(current_user.id), class: "edit-link-red"%>に遷移します
+      </div>
     <% end %>
     <% unless user_signed_in? %>
       <%= link_to 'まだユーザー登録していない方はこちら', new_user_registration_path %>

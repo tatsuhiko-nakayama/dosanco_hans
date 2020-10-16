@@ -21,7 +21,7 @@
 
 .item-box>.name {
   text-align: center;
-  font-size: 2.5vw;
+  font-size: 20px;
 }
 
 .item-box-img {
@@ -30,6 +30,7 @@
   background-color: #fff;
   object-fit: contain;
   border: 1px solid lightgrey;
+  margin-top: 10px;
 }
 
 .item-price-box {
@@ -40,11 +41,11 @@
 }
 
 .item-price-box>.item-price {
-  font-size: 2.0vw;
+  font-size: 15px;
 }
 
 .item-price-box>.item-postage {
-  font-size: 1.5vw;
+  font-size: 13px;
 }
 
 
@@ -64,8 +65,9 @@
   opacity: 0.5 ;
 }
 
-.or-text {
-  font-size: 20px;
+.no-card-mypage {
+  font-size: 15px;
+  margin-top: 3vh;
 }
 
 .item-destroy {
@@ -87,16 +89,18 @@
 
 .item-explain-box {
   font-size: 16px;
-  margin: 10vh 20vw;
+  margin: 8vh 20vw;
   padding-left: 5vw;
   padding-right: 3vw;
   width: 60vw;
-  word-wrap: break-word;  
+  word-wrap: break-word; 
+  border-top: 1px solid lightgrey; 
 }
 
 .item-explain-text {
   font-weight: bold;
   margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
 .detail-table {
