@@ -1,66 +1,73 @@
+<div class="category-title">
+  <p>New Arrival</p>
+</div>
+
 <%# 商品一覧 %>
-  <div class='second-item-contents'>
-    <ul class='item-lists'>
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <% @items.each do |item| %>
+<div class='second-item-contents'>
+  <ul class='item-lists'>
+
+    <%# 商品があればすべて展開 %>
+    <% @items.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
-        <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img" %>
+          <div class='item-img-content'>
+            <%= image_tag item.image, class: "item-img" %>
 
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <% if item.order %>
-          <div class='sold-out'>
-            <span>Sold Out!!</span>
+            <%# 商品が売れていればsold out表示%>
+            <% if item.order %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
+            <%# // 商品が売れていればsold out表示%>
+
           </div>
-          <% end %>
-          <%# //商品が売れていればsold outを表示しましょう %>
-
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.name %>
-          </h3>
-          <div class='item-price'>
-            <span><%= item.price %>円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'><%= Like.where(item_id: item.id).count %></span>
-              <%= image_tag "comment2.png", class:"comment-icon" %>
-              <span class='comment-count'><%= Comment.where(item_id: item.id).count %></span>
+          <div class='item-info'>
+            <div class='item-name'>
+              <%= item.name if item.name.length <= 20  %>
+              <%= item.name.slice(0..19) + "…" if item.name.length >= 21 %>
+            </div>
+            <div class='item-bottom-info'>
+              <div class='item-price'>
+                <span><%= item.price.to_s(:delimited) %>円</span>
+              </div>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'><%= Like.where(item_id: item.id).count %></span>
+                <%= image_tag "comment2.png", class:"comment-icon" %>
+                <span class='comment-count'><%= Comment.where(item_id: item.id).count %></span>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </li>
-      <% end %>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+    <% end %>
+    <%# // 商品があればすべて展開 %>
 
-      <%# 商品がない場合のダミー %>
-      <%# 商品がある場合は表示されないようにしましょう %>
-      <% unless @items.exists?%>
+    <%# 商品がない場合のダミー %>
+    <% unless @items.exists?%>
       <li class='list'>
         <%= link_to '#' do %>
-        <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
-        <div class='item-info'>
-          <h3 class='item-name'>
-            商品を出品してね！
-          </h3>
-          <div class='item-price'>
-            <span>99999999円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count'>0</span>
+          <%= image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", class: "item-img" %>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              商品を出品してね！
+            </h3>
+            <div class='item-price'>
+              <span>99999999円<br>(税込み)</span>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'>0</span>
+              </div>
             </div>
           </div>
-        </div>
         <% end %>
       </li>
-      <% end %>
-      <%# //商品がある場合は表示されないようにしましょう %>
-      <%# /商品がない場合のダミー %>
-    </ul>
-  </div>
+    <% end %>
+    <%# // 商品がない場合のダミー %>
+
+  </ul>
+</div>
 <%# /商品一覧 %>
 
 <div class='purchase-btn'>

@@ -1,4 +1,4 @@
-<%# CSS・・・assets/stylesheets/shared/header.css %>
+<%# CSS・・・/shared/header.css %>
 <header class='top-page-header'>
   <div class='search-bar-contents'>
     <%= link_to image_tag("dosanco_hans_logo.png", class:"furima-icon"), "/" %>
@@ -14,7 +14,7 @@
       <li class ="category-list" id="category">▼ カテゴリーから探す</li>
     </ul>
     <ul class='lists-right'>
-      <%# deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
+      <%# ログイン有無の条件分岐 %>
       <% if user_signed_in? %>
         <li><%= link_to "#{current_user.nickname}さんのマイページ", user_path(current_user.id), class: "user-nickname" %></li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
@@ -22,9 +22,10 @@
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
       <% end %>
-      <%# //deviseを導入できたら、ログインの有無で表示が変わるように分岐しましょう%>
+      <%# // ログイン有無の条件分岐 %>
     </ul>
   </div>
+
   <%# カテゴリーリスト%>
    <ul class="category-show-lists hidden" id="pull-down">
       <li class="pull-down-list">

@@ -1,33 +1,50 @@
 <%= render "shared/header" %>
 <div class='main'>
 
+   <%# 創るたのしさ　使うよろこび　ゾーン %>
+  <div class='title-contents'>
+    <h2 class='service-title'>
+      創る楽しさ　使うよろこび
+    </h2>
+    <p class='service-explain'>
+      DasancoHansは道民による道民のための
+    </p>
+    <p class='service-explain'>
+      ハンドメイド作品専門マーケットです
+    </p>
+  </div>
+  <%# /創るたのしさ　使うよろこび　ゾーン %>
+
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>New Arrival</h2>
     <ul class='item-lists'>
-      <%# 商品のインスタンス変数になにか入っている場合、すべてを展開 %>
+    
+      <%# 商品があればすべて展開 %>
       <% @items.first(12).each do |item| %>
         <li class='list'>
           <%= link_to item_path(item.id) do %>
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
 
-              <%# 商品が売れていればsold outを表示しましょう %>
+              <%# 商品が売れていればsold out表示%>
               <% if item.order %>
                 <div class='sold-out'>
                   <span>Sold Out</span>
                 </div>
               <% end %>
-              <%# //商品が売れていればsold outを表示しましょう %>
+              <%# //商品が売れていればsold out表示%>
 
             </div>
             <div class='item-info'>
               <div class='item-name'>
-                <%= item.name if item.name.length <= 20  %>
-                <%= item.name.slice(0..19) + "…" if item.name.length >= 21 %>
+                <%= item.name if item.name.length <= 23  %>
+                <%= item.name.slice(0..22) + "…" if item.name.length >= 24 %>
               </div>
-              <div class='item-price'>
-                <span><%= item.price %>円<br>(税込み)</span>
+              <div class='item-bottom-info'>
+                <div class='item-price'>
+                  <span><%= item.price.to_s(:delimited) %>円</span>
+                </div>
                 <div class='star-btn'>
                   <%= image_tag "star.png", class:"star-icon" %>
                   <span class='star-count'><%= Like.where(item_id: item.id).count %></span>
@@ -39,7 +56,7 @@
           <% end %>
         </li>
       <% end %>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <%# //商品があればすべて展開 %>
 
       <%# 商品がない場合のダミー %>
       <% unless @items.exists?%>
@@ -66,21 +83,7 @@
   </div>
   <%# /商品一覧 %>
 
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
-  <div class='title-contents'>
-    <h2 class='service-title'>
-      創る楽しさ　使うよろこび
-    </h2>
-    <p class='service-explain'>
-      DasancoHansは道民による道民のための
-    </p>
-    <p class='service-explain'>
-      フリマアプリです
-    </p>
-  </div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
-
-  <%# FURIMAが選ばれる3つの理由部分 %>
+  <%# DosancoHansのメリット　ゾーン %>
   <div class='select-reason-contents'>
     <h2 class='title'>
       DosancoHansのメリット
@@ -112,7 +115,7 @@
       </li>
     </ul>
   </div>
-  <%# /FURIMAが選ばれる3つの理由部分 %>
+  <%# /DosancoHansのメリット　ゾーン %>
 </div>
 
 <div class='purchase-btn'>
