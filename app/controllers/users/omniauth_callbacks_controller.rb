@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-
   def facebook
     authorization
   end
@@ -13,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def authorization
-    sns_info = User.from_omniauth(request.env["omniauth.auth"])
+    sns_info = User.from_omniauth(request.env['omniauth.auth'])
     @user = sns_info[:user]
 
     if @user.persisted?
@@ -23,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       render template: 'devise/registrations/new'
     end
   end
-  
+
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 

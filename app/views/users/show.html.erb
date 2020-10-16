@@ -1,43 +1,51 @@
 <%= render "shared/header" %>
 
-<%# 「いいね」した商品の一覧 %>
+<div class='mypage-title'>
+  <h2 class='title'>User's page << <%= @user.nickname%></h2>
+</div>
+
+ <%# 「いいね」した商品の一覧 %>
 <div class='item-contents'>
   <h2 class='title'>「いいね」した商品</h2>
   <ul class='item-lists'>
 
-    <%# 商品のインスタンス変数になにか入っている場合、すべてを展開 %>
-    <% @user.liked_items.each do |item| %>
+    <%# 商品があればすべて展開 %>
+    <% @user.liked_items.order('created_at DESC').each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
           <div class='item-img-content'>
             <%= image_tag item.image, class: "item-img" %>
 
-            <%# 商品が売れていればsold outを表示しましょう %>
+            <%# 商品が売れていればsold out表示%>
             <% if item.order %>
               <div class='sold-out'>
                 <span>Sold Out</span>
               </div>
             <% end %>
-            <%# //商品が売れていればsold outを表示しましょう %>
+            <%# // 商品が売れていればsold out表示%>
 
           </div>
           <div class='item-info'>
-            <h3 class='item-name edit-link'>
-              <%= item.name %>
-            </h3>
-            <div class='item-price edit-link'>
-              <span><%= item.price %>円<br>(税込み)</span>
-            <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
-              <span class='star-count edit-link'><%= Like.where(item_id: item.id).count %></span>
-              <%= image_tag "comment2.png", class:"comment-icon" %>
-              <span class='comment-count edit-link'><%= Comment.where(item_id: item.id).count %></span>
+            <div class='item-name'>
+              <%= item.name if item.name.length <= 20  %>
+              <%= item.name.slice(0..19) + "…" if item.name.length >= 21 %>
+            </div>
+            <div class='item-bottom-info'>
+              <div class='item-price'>
+                <span><%= item.price.to_s(:delimited) %>円</span>
+              </div>
+              <div class='star-btn'>
+                <%= image_tag "star.png", class:"star-icon" %>
+                <span class='star-count'><%= Like.where(item_id: item.id).count %></span>
+                <%= image_tag "comment2.png", class:"comment-icon" %>
+                <span class='comment-count'><%= Comment.where(item_id: item.id).count %></span>
+              </div>
             </div>
           </div>
         <% end %>
       </li>
     <% end %>
-    <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+    <%# // 商品があればすべて展開 %>
 
     <%# 商品がない場合のダミー %>
     <% unless @user.liked_items.exists?%>
@@ -52,18 +60,19 @@
         <% end %>
       </li>
     <% end %>
-    <%# //商品がある場合は表示されないようにしましょう %>
+    <%# // 商品がない場合のダミー %>
+    
       
   </ul>
 </div>
-<%# /「いいね」した商品の一覧 %>
+<%# //「いいね」した商品の一覧 %>
 
 <%# マイページ情報 %>
 <div class="item-show">
   <div class="item-box">  
 
     <%# アカウント情報 %>
-    <div class="item-explain-box">
+    <div class="account-title">
       <span><%= "アカウント情報" %></span>
     </div>
     <table class="detail-table">
@@ -86,34 +95,35 @@
         </tr>
       </tbody>
     </table>
-
-    <%# マイページアクション %>  
+ 
     <%= link_to 'アカウントの編集', edit_user_path(current_user), class: "item-red-btn" %>
-    
-    <%# カード登録済の場合%>
+    <%# // アカウント情報 %>
+
+    <%# カード情報 %>
+    <%# カード登録の有無で処理区別 %>
     <% if @user.card %>
-      <%# カード情報 %>
-    <div class="item-explain-box">
-      <span><%= "カード情報" %></span>
-    </div>
-    <table class="detail-table">
-      <tbody>
-        <tr>
-          <th class="detail-item">カード番号</th>
-          <td class="detail-value"><%= "**** **** **** " + @card[:last4] %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">有効期限</th>
-          <td class="detail-value"><%= "#{@card[:exp_month]} / #{@card[:exp_year]}" %></td>
-        </tr>
-      </tbody>
-    </table>
-      <%# カード削除 %>
-      <%= link_to 'カードの登録を解除', user_card_path(@user.card.id), method: :delete, class:"item-red-btn" %>
-    <%# カード未登録の場合%>
+      <div class="card-title">
+        <span><%= "カード情報" %></span>
+      </div>
+      <table class="detail-table">
+        <tbody>
+          <tr>
+            <th class="detail-item">カード番号</th>
+            <td class="detail-value"><%= "**** **** **** " + @card[:last4] %></td>
+          </tr>
+          <tr>
+            <th class="detail-item">有効期限</th>
+            <td class="detail-value"><%= "#{@card[:exp_month]} / #{@card[:exp_year]}" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to 'カードの登録を解除', user_card_path(@user.card.id), method: :delete, class:"item-red-btn" %>  
     <% else %>
       <%= link_to 'カード情報の登録', new_user_card_path(current_user) ,class:"item-red-btn"%>
     <% end %>
+    <%# // カード登録の有無で処理区別 %>
+    <%# //カード情報 %>
+    
   </div>
 </div>
 

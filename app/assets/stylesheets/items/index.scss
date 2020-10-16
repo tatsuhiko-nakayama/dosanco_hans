@@ -9,11 +9,11 @@ a {
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
-  height: 35vw;
+  height: 25vw;
   background-image: image-url('toppage_content1.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -24,13 +24,13 @@ a {
 }
 
 .service-title {
-  font-size: 5vh;
-  margin-bottom: 3vh;
+  font-size: 3.2vw;
+  margin-bottom: 2.5vw;
 }
 
 .service-explain {
-  font-size: 2.5vh;
-  line-height: 40px;
+  font-size: 1.6vw;
+  line-height: 3.5vw;
 }
 
 .store-btn {
@@ -273,7 +273,6 @@ a {
 .item-img-content {
   position: relative;
   width :33vh;
-  width :33vh;
   border: 1px solid lightgrey;
 }
 
@@ -284,7 +283,7 @@ a {
 
 .item-img {
   width: 33vh;
-  height: 33vh;
+  height: 29vh;
 }
 
 .item-img:hover{
@@ -293,6 +292,8 @@ a {
 
 .sold-out {
   position: absolute;
+  height: 8vh;
+  padding: 1vh;
   top: 40%;
   width: 100%;
   text-align: center;
@@ -302,16 +303,17 @@ a {
 
 .sold-out>span {
   color: #FFF;
-  font-size: 30px;
+  font-size: 4vh;
 }
 
 
 .item-info {
-  height: 15vh;
+  height: 100px;
   width: 33vh;
   background-color: #FFF;
   color: black;
-  padding: 1vw;
+  padding: 1.5vw 1.5vw 0.6vw 1.5vw;
+  display: grid;
   align-content: space-between;
 }
 
@@ -323,15 +325,18 @@ a {
   padding: 1vw;
 }
 
+.item-bottom-info {
+  display: flex;
+  justify-content: space-between;
+}
+
 .item-name {
-  font-size: 2.5vh;
+  font-size: 2.1vh;
   word-wrap: break-word;
 }
 
 .item-price {
-  font-size: 1.5vh;
-  display: flex;
-  justify-content: space-between;
+  font-size: 1.9vh;
 }
 
 
@@ -343,7 +348,8 @@ a {
 .star-icon {
   height: 2vh;
   width: 2vh;
-  margin-right: 0.5vw;
+  margin-right: 0.3vw;
+  margin-bottom: 0.5vh;
 }
 
 .star-count {
@@ -354,12 +360,12 @@ a {
   height: 2.5vh;
   width: 2.5vh;
   margin-left: 0.5vw;
-  margin-right: 0.5vw;
+  margin-right: 0.2vw;
 }
 
 .comment-count{
   font-size: 2vh;
-  margin-right: 1vh;
+ 
 }
 
 .edit-link-white {

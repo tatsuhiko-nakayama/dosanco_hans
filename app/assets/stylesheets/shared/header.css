@@ -4,7 +4,7 @@
 
 .top-page-header {
   width: 100vw;
-  padding: 2vh 15vw;
+  padding: 2vh 10vw;
   display: flex;
   flex-direction: column;
 }
@@ -17,13 +17,13 @@
 
 .furima-icon {
   width: 17vw;
+  min-width: 100px;
   margin-right: 10vw;
   margin-bottom: 5px;
 }
 
 .search-form {
-  width: 65vw;
-  height: 5vh;
+  width: 100%;
   display: flex;
   margin-bottom: 5px;
 }
@@ -34,6 +34,30 @@
   background-color: #585858;
   background-image: url("/images/search.png");
   padding: 8px;
+}
+
+.search-form textarea {
+  height: 40px;
+  padding: 8px;
+  padding-left: 15px;
+  border: 1px solid #D8D8D8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+  outline: none;
+}
+
+
+.search-form input[type="submit"] {
+  height: 40px;
+  margin-left: 5px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 15px;
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.search-form input[type="submit"]:hover {
+  background-color: orange;
 }
 
 .nav {
@@ -54,7 +78,10 @@
 .category-list {
   text-decoration: none;
   margin-right: 3vw;
+  margin-left: 2vw;
   color: #333333;
+  cursor: pointer;
+  font-size: 15px;
 }
 
 .category-list:hover {
@@ -109,28 +136,4 @@
 
 .category-name{
   color: grey;
-}
-
-.search-form textarea {
-  width: 38vw;
-  height: 6vh;
-  padding: 8px;
-  border: 1px solid #D8D8D8;
-  border-radius: 5px;
-  font-family: "游ゴシック", "YuGothic";
-  outline: none;
-}
-
-
-.search-form input[type="submit"] {
-  height: 6vh;
-  margin-left: 5px;
-  border-radius: 5px;
-  color: #fff;
-  font-size: 15px;
-  font-family: "游ゴシック", "YuGothic";
-}
-
-.search-form input[type="submit"]:hover {
-  background-color: orange;
 }

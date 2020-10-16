@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def id2
     @items = Item.where(category_id: 2).order('created_at DESC')
   end
@@ -35,5 +34,4 @@ class CategoriesController < ApplicationController
   def id10
     @items = Item.where(category_id: 10).order('created_at DESC')
   end
-
 end

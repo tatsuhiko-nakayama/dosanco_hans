@@ -3,7 +3,9 @@
 <% elsif current_user.already_liked?(@item) %>
   <%= link_to item_like_path(@item.id), method: :delete do %>
     <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-    <span class="favorite-text"><%= "いいね #{@likes_count}" %></span>
+    <div class="favorite-text">
+      <%= "いいね #{@likes_count}" %>
+    </div>
   <% end %>
 <% else %>
   <%= link_to item_likes_path(@item.id), method: :post do %>
