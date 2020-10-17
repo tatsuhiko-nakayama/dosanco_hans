@@ -73,12 +73,9 @@
     </table>
 
     <%# いいねボタン %>
-    <div class="option">
-      <div class="favorite-btn" id="favorite">
-        <%= render 'like', { item: @item } %>
-      </div>
-    </div>
+    <%= render 'like', { item: @item } %>
     <%# /いいねボタン %>
+    
   </div>
   <%# /商品の概要 %>
 
