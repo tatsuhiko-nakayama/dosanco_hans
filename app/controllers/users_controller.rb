@@ -31,6 +31,8 @@ class UsersController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_token)
       @card = customer.cards.first
     end
+
+    @items = Item.where(user_id: current_user.id).order('created_at DESC')
   end
 
   private
