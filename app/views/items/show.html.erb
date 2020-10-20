@@ -28,14 +28,14 @@
 
     <%# ログインユーザー = 出品ユーザー の場合の処理 %>
     <% if current_user == @item.user && !@item.order%>
-      <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
+      <%= link_to '商品の編集', edit_item_path(@item.id), class: "item-red-btn" %>
       <%= link_to '出品を削除', "/items/#{@item.id}", method: :delete, class:'item-destroy' %>
     <% end %>
     <%# // ログインユーザー = 出品ユーザー の場合の処理 %>
 
     <%# 商品が売れていない場合の処理 %>
     <% if user_signed_in? && current_user != @item.user && !@item.order %>
-      <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class: "item-red-btn" %>
+      <%= link_to '購入画面に進む', item_orders_path(@item.id), class: "item-red-btn" %>
       <div class="no-card-mypage">
         ※カード未登録の方は<%= link_to 'マイページ', user_path(current_user.id), class: "edit-link-red"%>に遷移します
       </div>
@@ -156,9 +156,9 @@
   </div>
   <%# // 前後商品リンク %>
 
-  <%# 同一カテゴリーのサジェスト%>
+  <%# 同一カテゴリーページのサジェスト%>
     <%= link_to ">> #{@item.category.name}をもっと見る", "/categories/id#{@item.category_id}", class: "another-item"%>
-  <%# // 同一カテゴリーのサジェスト%>
+  <%# // 同一カテゴリーページのサジェスト%>
   
 </div>
 
