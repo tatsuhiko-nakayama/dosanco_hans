@@ -5,8 +5,7 @@ DosancoHans
 ## 概要
 北海道地域に特化したハンドメイド作品の専門フリーマーケットアプリです。
 
-<img width="1179" alt="スクリーンショット 2020-10-20 17 32 47" src="https://user-images.githubusercontent.com/70306357/96561464-93756380-12fa-11eb-9f65-00a667d08d2f.png">
-
+[![Image from Gyazo](https://i.gyazo.com/6b49e07ca334462cf96f71a94581e362.gif)](https://gyazo.com/6b49e07ca334462cf96f71a94581e362)
 
 ## リンク
 - URL : https://dosancohans.herokuapp.com/
