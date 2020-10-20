@@ -1,18 +1,18 @@
 
-# アプリケーション名
+## アプリケーション名
 DosancoHans
 
-# 概要
+## 概要
 北海道地域に特化したハンドメイド作品の専門フリーマーケットアプリです。
 
 <img width="1179" alt="スクリーンショット 2020-10-20 17 32 47" src="https://user-images.githubusercontent.com/70306357/96561464-93756380-12fa-11eb-9f65-00a667d08d2f.png">
 
 
-# リンク
+## リンク
 - URL : https://dosancohans.herokuapp.com/
 - GitHubリポジトリ : https://github.com/tatsuhiko-nakayama/dosanco_hans
 
-# 使用技術
+## 使用技術
 - MySQL
 - Javascript
 - Ruby 2.6.5 / Rails 6.0.3.4
@@ -21,11 +21,11 @@ DosancoHans
 - Git / GitHub
 - Heroku
 
-# 利用方法
+## 利用方法
 どのユーザーも出品されている商品を閲覧することができます。
 出品、購入を行うためにはユーザー登録を行いログインする必要があります。
 
-# テスト用アカウント
+## テスト用アカウント
 - 出品者用
   - Email : tester@1
   - Pass : tester1
@@ -37,14 +37,14 @@ DosancoHans
   - 期限 : 現在以降
   - CVC : 123
 
-# アプリの目的・意義・着想
+## アプリの目的・意義・着想
 北海道にはクリエイターがたくさんいるにも関わらず、クリエイターとユーザーを結びつける場所がなかったため、地域に特化したマーケットサイトを作成しました。
 「北海道」というつながりを大切にするため、ユーザー同士がコミュニケーションしやすいアプリケーションになるよう設計、実装を行いました。
 
-# 要件定義
+## 要件定義
 ※後日update
 
-# 機能一覧
+## 機能一覧
 ◆ユーザー機能
 - deviseを使用
 - SNSログイン認証
@@ -75,19 +75,19 @@ DosancoHans
 ◆サジェスト機能
 - 閲覧商品の前後に登録された商品をサジェスト
 
-# 今後実装したい項目
+## 今後実装したい項目
 - 出品物の選択（一括）削除機能
 - 出品した商品の閲覧数の表示
 - 出品した商品のアナリティクス機能
 - お気に入りの出品者を記録できる機能
 - 商品画像の複数登録＆スライド表示
 
-# ER図
+## ER図
 ![dosanco_hans ER図](https://user-images.githubusercontent.com/70306357/96569972-c6245980-1304-11eb-9577-b56987d24d12.png)
 
-# テーブル設計
+## テーブル設計
 
-## users テーブル
+### users テーブル
 
 | Column       | Type    | Options                   |
 | ------------ | ------- | ------------------------- |
@@ -105,7 +105,7 @@ DosancoHans
 - has_one  :card
 - has_many :likes
 
-## sns_credentials テーブル
+### sns_credentials テーブル
 
 | Column    | Type       | Options                         |
 | --------- | ---------- | ------------------------------- |
@@ -117,7 +117,7 @@ DosancoHans
 
 - belongs_to :user
 
-## cards テーブル
+### cards テーブル
 
 | Column         | Type       | Options                         |
 | -------------- | ---------- | ------------------------------- |
@@ -129,7 +129,7 @@ DosancoHans
 
 - belongs_to :user
 
-## items テーブル
+### items テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
@@ -152,7 +152,7 @@ DosancoHans
 - belongs_to_active_hash :from
 - belongs_to_active_hash :day
 
-## orders テーブル
+### orders テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -165,7 +165,7 @@ DosancoHans
 - belongs_to :user
 - belongs_to :item
 
-## addresses テーブル
+### addresses テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
@@ -180,7 +180,7 @@ DosancoHans
 
 - belongs_to :order
 
-## comments テーブル
+### comments テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -193,7 +193,7 @@ DosancoHans
 - belongs_to :user
 - belongs_to :item
 
-## likes テーブル
+### likes テーブル
 
 | Column | Type       | Options           |
 | ------ | ---------- | ----------------- |
