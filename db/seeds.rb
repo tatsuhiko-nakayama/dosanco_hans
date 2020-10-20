@@ -57,27 +57,27 @@
 # end
 # # < /Item登録 >
 
-# < Comment登録 >
-10.times do |i|
-  Comment.create(message: "出品しました！", user_id: '1', item_id: "#{891+(10*i)}")
-  Comment.create(message: "素敵な商品ですね", user_id: '2', item_id: "#{891+(10*i)}")
-  Comment.create(message: "Looks good to me !", user_id: '3', item_id: "#{891+(10*i)}")
-end
-# < /Comment登録 >
+# # < Comment登録 >
+# 10.times do |i|
+#   Comment.create(message: "出品しました！", user_id: '1', item_id: "#{901+(10*i)}")
+#   Comment.create(message: "素敵な商品ですね", user_id: '2', item_id: "#{901+(10*i)}")
+#   Comment.create(message: "Looks good to me !", user_id: '3', item_id: "#{901+(10*i)}")
+# end
+# # < /Comment登録 >
 
-# < Like登録 >
-10.times do |i|
-  Like.create(user_id: '1', item_id: "#{891+(10*i)}")
-  Like.create(user_id: '2', item_id: "#{891+(10*i)}")
-  Like.create(user_id: '3', item_id: "#{891+(10*i)}")
-  Like.create(user_id: '4', item_id: "#{891+(10*i)}")
-  Like.create(user_id: '5', item_id: "#{891+(10*i)}")
-end
-# < /Like登録 >
+# # < Like登録 >
+# 10.times do |i|
+#   Like.create(user_id: '1', item_id: "#{901+(10*i)}")
+#   Like.create(user_id: '2', item_id: "#{901+(10*i)}")
+#   Like.create(user_id: '3', item_id: "#{901+(10*i)}")
+#   Like.create(user_id: '4', item_id: "#{901+(10*i)}")
+#   Like.create(user_id: '5', item_id: "#{901+(10*i)}")
+# end
+# # < /Like登録 >
 
-# < Order & Address登録 >
-Order.create(user_id: '2', item_id: "981")
-Address.create(postal_code: '000-0000', city: 'Sapporo', house_num: '1-1-1', phone: '09012345678', order_id: '1')
-Order.create(user_id: '2', item_id: "961")
-Address.create(postal_code: '012-3456', city: 'Kushiro', house_num: 'onbetsucho', phone: '09099999999', order_id: '2')
-# < /Order & Address登録 >
+# # < Order & Address登録 >
+# Order.create(user_id: '2', item_id: "981")
+# Address.create(postal_code: '000-0000', city: 'Sapporo', house_num: '1-1-1', phone: '09012345678', order_id: '1')
+# Order.create(user_id: '2', item_id: "961")
+# Address.create(postal_code: '012-3456', city: 'Kushiro', house_num: 'onbetsucho', phone: '09099999999', order_id: '2')
+# # < /Order & Address登録 >
